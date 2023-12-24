@@ -9,8 +9,7 @@ app = Flask('app')
 @app.route('/')
 def hello_world():
   return """<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <b>Download API.
-    Chrome + Flask version!</b>"""
+    <b>Download API</b>"""
 
 
 @app.route('/youtube')
