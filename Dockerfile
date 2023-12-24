@@ -5,11 +5,10 @@ RUN apt-get update && apt-get install -y wget unzip
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
-COPY requirements.txt . 
+COPY . /home/user/app
+WORKDIR /home/user/app
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
-WORKDIR /home/user/api
-RUN chown -R user:user /home/user/api
-COPY ./ /home/user/api
+RUN chown -R user:user /home/user/app
 
 USER user 
 EXPOSE 8080
