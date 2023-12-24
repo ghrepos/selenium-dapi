@@ -1,6 +1,6 @@
 #!/usr/bin bash
 
-gunicorn --bind 0.0.0.0:7860 server.flask:app &
+gunicorn --bind 0.0.0.0:8080 server.flask:app &
 
 sleep 10 
 
