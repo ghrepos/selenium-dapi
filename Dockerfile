@@ -12,5 +12,5 @@ RUN chown -R user:user /home/user/api
 COPY ./ /home/user/api
 
 USER user 
-EXPOSE 7860
+EXPOSE 8080
 ENTRYPOINT ["bash", "start.sh"]
