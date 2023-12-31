@@ -1,16 +1,12 @@
 from flask import Flask, request
 from api import youtube, tikdou, facebook, instagram
-import logging
 
-logging.getLogger("api")
 app = Flask('app')
 
-
 @app.route('/')
-def hello_world():
+def home_info():
   return """<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <b>Download API</b>"""
-
+    <b>Selenium Download API</b>"""
 
 @app.route('/youtube')
 def youtube_download():
@@ -23,7 +19,6 @@ def youtube_download():
   else:
     return {"error": "no url found"}
 
-
 @app.route('/music')
 def music_download():
   url = request.args.get('url')
@@ -34,7 +29,6 @@ def music_download():
       return {"error": f"{e}"}
   else:
     return {"error": "no url found"}
-
 
 @app.route('/tiktokdouyin')
 def tiktokdouyin_download():
@@ -48,7 +42,6 @@ def tiktokdouyin_download():
   else:
     return {"error": "no url found"}
 
-
 @app.route('/facebook')
 def facebook_download():
   url = request.args.get('url')
@@ -59,7 +52,6 @@ def facebook_download():
       return {"error": f"{e}"}
   else:
     return {"error": "no url found"}
-
 
 @app.route('/instagram')
 def instagram_download():
@@ -72,7 +64,6 @@ def instagram_download():
       return {"error": f"{e}"}
   else:
     return {"error": "no url found"}
-
 
 @app.route('/other')
 def other_download():
