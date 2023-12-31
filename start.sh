@@ -1,3 +1,4 @@
 #!/usr/bin bash
 
-gunicorn --bind 0.0.0.0:8080 server.flask:app
+echo "Selenium Download API"
+gunicorn --b 0.0.0.0:8080 --log-level critical main:app

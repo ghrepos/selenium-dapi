@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from endpoints.webset import options
+from preset import options
 
 def get(url):
   driver = webdriver.Chrome(options=options)

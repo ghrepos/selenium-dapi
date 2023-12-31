@@ -1,5 +1,5 @@
 from flask import Flask, request
-from endpoints.chrome import youtube, tikdou, facebook, instagram
+from api import youtube, tikdou, facebook, instagram
 import logging
 
 logging.getLogger("api")
