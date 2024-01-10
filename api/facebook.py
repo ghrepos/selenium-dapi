@@ -1,11 +1,14 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from preset import options
+from selenium.webdriver import Firefox as WebDriver
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument('-headless')
 
 def get(url):
-  driver = webdriver.Chrome(options=options)
+  driver = WebDriver(options=options)
   driver.get("https://fdownloader.net/")
   search_box = driver.find_element(By.ID, "s_input")
   search_box.send_keys(url)
@@ -13,20 +16,16 @@ def get(url):
       By.XPATH, "//button[@class='btn-red' and contains(text(),'Download')]")
   download_button.click()
   try:
-    elements = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((
+    video_link = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((
             By.XPATH,
             "//a[@class='button is-success is-small download-link-fb' and contains(@title, 'Download 720p (HD)')]"
-        )))
-    links = [element.get_attribute("href") for element in elements]
+        ))).get_attribute("href")
   except:
-    elements = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((
+    video_link = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((
             By.CSS_SELECTOR,
             "//a[@class='button is-success is-small download-link-fb' and contains(@title, 'Download 360p (SD)')]"
-        )))
-    links = [element.get_attribute("href") for element in elements]
+        ))).get_attribute("href")
   driver.quit()
-  return links
-  
- 
+  return [video_link]
