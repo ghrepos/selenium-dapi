@@ -58,8 +58,8 @@ def instagram_download():
   url = request.args.get('url')
   if url:
     try:
-      is_video, download_url = instagram.get(url)
-      return {"is_video": is_video, "url": download_url}
+      is_video, dl_url = instagram.get(url)
+      return {"is_video": is_video, "url": dl_url}
     except Exception as e:
       return {"error": f"{e}"}
   else:
