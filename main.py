@@ -1,7 +1,7 @@
 from flask import Flask, request
 from api import youtube, tikdou, facebook, instagram
 
-app = Flask('app')
+app = Flask('__api__')
 
 @app.route('/')
 def home_info():
