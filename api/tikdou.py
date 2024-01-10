@@ -44,6 +44,6 @@ def get_web(url):
     download_photos = wait.until(
     EC.presence_of_all_elements_located((By.CLASS_NAME, "w100")))
     file_url = file_url = [element.get_attribute("href") for element in download_photos]
-   is_video = False
+    is_video = False
   driver.quit()
   return file_url, is_video
