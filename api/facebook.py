@@ -7,7 +7,7 @@ from preset import options
 def get(url):
   driver = webdriver.Chrome(options=options)
   driver.get("https://fdownloader.net/")
-  search_box = driver.find_element(By.ID, "s_input"))
+  search_box = driver.find_element(By.ID, "s_input")
   search_box.send_keys(url)
   download_button = driver.find_element(
       By.XPATH, "//button[@class='btn-red' and contains(text(),'Download')]")
