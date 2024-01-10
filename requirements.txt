@@ -2,4 +2,5 @@ selenium
 requests 
 flask 
 gunicorn 
-yt-dlp 
+yt-dlp
+douyin-tiktok-scraper
