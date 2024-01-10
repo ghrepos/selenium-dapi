@@ -1,7 +1,7 @@
 FROM python:latest
 
 RUN useradd -m -u 1000 user
-RUN apt-get update && apt-get install -y wget unzip
+RUN apt-get update && apt-get install -y wget unzip firefox
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 COPY . /home/user/app
