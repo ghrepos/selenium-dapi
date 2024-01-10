@@ -39,7 +39,7 @@ def get_web(url):
     download_video = wait.until(
     EC.presence_of_element_located((By.CLASS_NAME, "download-file")))
     file_url = download_video.get_attribute("href")
-   is_video = True
+    is_video = True
   except:
     download_photos = wait.until(
     EC.presence_of_all_elements_located((By.CLASS_NAME, "w100")))
