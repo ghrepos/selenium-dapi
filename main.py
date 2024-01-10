@@ -30,15 +30,15 @@ def music_download():
   else:
     return {"error": "no url found"}
 
-@app.route('/tiktokdouyin')
+@app.route('/tikdou')
 def tiktokdouyin_download():
   url = request.args.get('url')
   if url:
     try:
-      dl_url, video = tikdou.get(url)
+      dl_url, music_url, is_video = tikdou.get(url)
     except Exception as e:
       return {"error": f"{e}"}
-    return {"url": dl_url, "video": video}
+    return {"url": dl_url, "music": music_url, "is_video": is_video}
   else:
     return {"error": "no url found"}
 
@@ -58,8 +58,8 @@ def instagram_download():
   url = request.args.get('url')
   if url:
     try:
-      video, download_url = instagram.get(url)
-      return {"video": video, "url": download_url}
+      is_video, download_url = instagram.get(url)
+      return {"is_video": is_video, "url": download_url}
     except Exception as e:
       return {"error": f"{e}"}
   else:
